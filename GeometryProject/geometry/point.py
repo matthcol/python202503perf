@@ -20,7 +20,7 @@ class Point(Shape): # class Point inherits from class Shape
     x: float = 0.0
     y: float = 0.0
 
-    # customize a 'str' diffedrent from 'repr'
+    # customize a 'str' different from 'repr'
     def __str__(self):
         return f"({self.x}, {self.y})"
   
@@ -37,5 +37,5 @@ class WeightedPoint(Point):
     pass
 
 @dataclass
-class ColoredWeighted(ColoredPoint, WeightedPoint):
+class ColoredWeightedPoint(ColoredPoint, WeightedPoint):
     pass
