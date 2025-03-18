@@ -3,6 +3,8 @@
 # En Python 3, toute classe hérite de la classe 'object'
 # conventions de nommage: PEP 8
 
+import math
+
 from dataclasses import dataclass
 # other possibility: pydantic (lib tierce)
 
@@ -21,5 +23,5 @@ class Point:
         return f"({self.x}, {self.y})"
   
     def distance(self, other: 'Point') -> float:
-        # TODO
-        return 0.0
+       # return math.hypot(self.x - other.x, self.y - other.y) 
+       return math.dist([self.x, self.y], [other.x, other.y])
