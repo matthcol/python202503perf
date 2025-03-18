@@ -1,3 +1,8 @@
 # marqueur du package geometry (directory)
-from . import point
-from .point import Point
+from . import shape, point, circle, line, polygon
+
+from .shape import Shape
+from .point import Point, ColoredPoint, WeightedPoint, ColoredWeighted
+from .line import Segment
+from .polygon import Polygon
+from .circle import Circle

@@ -6,12 +6,14 @@
 import math
 
 from dataclasses import dataclass
+
+from geometry.shape import Shape
 # other possibility: pydantic (lib tierce)
 
 
 # @dataclass # init, repr/str, equals/hash, ...
 @dataclass(kw_only=True)
-class Point:
+class Point(Shape): # class Point inherits from class Shape
     """represents a 2D point with its coordinates x and y
     """
 
@@ -25,3 +27,15 @@ class Point:
     def distance(self, other: 'Point') -> float:
        # return math.hypot(self.x - other.x, self.y - other.y) 
        return math.dist([self.x, self.y], [other.x, other.y])
+    
+@dataclass
+class ColoredPoint(Point):
+    pass
+
+@dataclass
+class WeightedPoint(Point):
+    pass
+
+@dataclass
+class ColoredWeighted(ColoredPoint, WeightedPoint):
+    pass
