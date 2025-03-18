@@ -3,4 +3,5 @@ __pycache__/
 .pytest_cache/
 .vscode/
 .virtual_documents/
-*.csv
+data/
+.ipynb_checkpoints/
