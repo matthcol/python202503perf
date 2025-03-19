@@ -32,5 +32,10 @@ conda activate envformation313
 conda install numpy pandas jupyterlab pytest
 ```
 
+### VS Code
+Installer les extensions Python et Pylance et éventuellement MyPy.
+- Lancer VS Code dans son répertoire de projet et environnement adéquat: `code .`
+- Choisir son interprète python: `Ctrl+Maj+P`
+- Quick Fix (import, ...): `Ctrl+;` or `Ctrl+Maj+;`
 
  
