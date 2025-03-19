@@ -37,3 +37,12 @@ for p in p1, p3:
 
 d = p1.distance(p3)
 print("distance:", d)
+
+# default shapes
+_ = geo.Polygon()
+_ = geo.Segment()
+_ = geo.Circle()
+_ = geo.Point()
+_ = geo.ColoredPoint()
+_ = geo.WeightedPoint()
+_ = geo.ColoredWeightedPoint()
