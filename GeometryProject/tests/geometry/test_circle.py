@@ -24,7 +24,7 @@ def test_constructor_all_args(circleC, pointA):
     assert circleC.name == "C"
     assert 10.0 == circleC.radius
     assert circleC.center is not None
-    assert pointA == circleC.center
+    assert pointA is circleC.center
 
 def test_translate(circleC):
     # before: centre: x=3.5, y=7.25
@@ -32,3 +32,8 @@ def test_translate(circleC):
     assert 4.5 == circleC.center.x
     assert 6.25 == circleC.center.y
     
+def test_area(circleC):
+    assert pytest.approx(314.1592653589793, rel=1E-15) == circleC.area()
+
+def test_perimeter(circleC):
+    assert pytest.approx(62.83185307179586, rel=1E-15) == circleC.perimeter()

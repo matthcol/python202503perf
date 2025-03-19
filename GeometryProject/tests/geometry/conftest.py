@@ -9,3 +9,7 @@ from geometry.point import Point
 @pytest.fixture
 def pointA() -> Point:
     return Point(name="A", x=3.5, y=7.25)
+
+@pytest.fixture
+def pointB() -> Point:
+    return Point(name="B", x=7.5, y=10.25)

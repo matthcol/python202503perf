@@ -38,7 +38,7 @@ def pentagon_wikipedia() -> Polygon:
 )
 def test_area(polygon_fixture_name, expected_area, request):
     polygon = request.getfixturevalue(polygon_fixture_name)
-    actual_area = polygon.surface()
+    actual_area = polygon.area()
     assert expected_area == actual_area
     
 
@@ -53,3 +53,18 @@ def test_perimeter(polygon_fixture_name, expected_perimeter, request):
     polygon = request.getfixturevalue(polygon_fixture_name)
     actual_perimeter = polygon.perimeter()
     assert expected_perimeter == actual_perimeter
+
+def test_constructor_default():
+    poly = Polygon()
+    assert 3 == len(poly.vertices)
+    p0 = Point()
+    for vertix in poly.vertices:
+        assert p0 == vertix
+
+def test_constructor_all_args(pentagon_wikipedia):
+    assert 5 == len(pentagon_wikipedia.vertices)
+    assert Point(x=1.0, y=6.0) == pentagon_wikipedia.vertices[0]
+    assert Point(x=3.0, y=1.0) == pentagon_wikipedia.vertices[1]
+    assert Point(x=7.0, y=2.0) == pentagon_wikipedia.vertices[2]
+    assert Point(x=4.0, y=4.0)     == pentagon_wikipedia.vertices[3]
+    assert Point(x=8.0, y=5.0) == pentagon_wikipedia.vertices[4]
