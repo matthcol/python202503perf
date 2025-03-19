@@ -38,11 +38,15 @@ for p in p1, p3:
 d = p1.distance(p3)
 print("distance:", d)
 
+# abstract class
+# TypeError: Can't instantiate abstract class Shape without an implementation for abstract method 'translate' 
+# s = geo.Shape()
+
 # default shapes
-_ = geo.Polygon()
-_ = geo.Segment()
-_ = geo.Circle()
-_ = geo.Point()
-_ = geo.ColoredPoint()
-_ = geo.WeightedPoint()
-_ = geo.ColoredWeightedPoint()
+poly0 = geo.Polygon()
+s0 = geo.Segment()
+circle0 = geo.Circle()
+p0 = geo.Point()
+cp0 = geo.ColoredPoint()
+wp0 = geo.WeightedPoint()
+cwp0 = geo.ColoredWeightedPoint()

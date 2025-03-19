@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from typing import override
 from geometry.point import Point
 from geometry.shape import Shape
 
@@ -10,11 +11,13 @@ class Polygon(Shape):
         default_factory=lambda: (Point(), Point(), Point())
     )
 
+    @override
     def translate(self, delta_x: float, delta_y: float) -> None:
         for vertix in self.vertices:
             vertix.translate(delta_x, delta_y)
 
-    def __str__(self):
+    @override
+    def __str__(self) -> str:
         return f"{
                 super().__str__()
             }~{
@@ -24,3 +27,6 @@ class Polygon(Shape):
                     ('?' if vertix.name is None else vertix.name) for vertix in self.vertices
                 )
             })"
+    
+    def is_valid(self):
+        return len(self.vertices) >= 3

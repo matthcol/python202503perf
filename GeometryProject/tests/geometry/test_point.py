@@ -1,11 +1,6 @@
 import pytest
 from geometry import Point
 
-@pytest.fixture
-def pointA() -> Point:
-    return Point(name="A", x=3.5, y=7.25)
-
-
 # this test modify the fixture without impact on another tests
 def test_set_x(pointA):
     pointA.x = 4.125

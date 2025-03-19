@@ -5,6 +5,7 @@
 
 import math
 from dataclasses import dataclass
+from typing import override
 
 from geometry.shape import Shape
 # other possibility: pydantic (lib tierce)
@@ -36,6 +37,7 @@ class Point(Shape): # class Point inherits from class Shape
        # return math.hypot(self.x - other.x, self.y - other.y) 
        return math.dist([self.x, self.y], [other.x, other.y])
     
+    @override
     def translate(self, delta_x: float, delta_y: float) -> None:
         self.x += delta_x
         self.y += delta_y
@@ -70,7 +72,11 @@ class WeightedPoint(Point):
     weight: float = 1.0
 
     def __str__(self):
-        return f"{super().__str__()}${self.weight:.3f}" 
+        return f"{
+                super().__str__()  # calls 'parent' class version
+            }${
+                self.weight:.3f
+            }" 
 
 @dataclass(kw_only=True)
 class ColoredWeightedPoint(ColoredPoint, WeightedPoint):
