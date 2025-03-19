@@ -1,11 +1,12 @@
 from dataclasses import dataclass, field
 from typing import override
 
+from geometry.mesurable import Mesurable1D
 from geometry.point import Point
 from geometry.shape import Shape
 
 @dataclass(kw_only=True)
-class Segment(Shape):
+class Segment(Shape, Mesurable1D):
     ends: tuple[Point, Point] = field(
         default_factory=lambda: (Point(), Point())
     )
@@ -22,4 +23,14 @@ class Segment(Shape):
             } - {
                 self.ends[1]
             }]"
+    
+    @override
+    def length(self) -> float:
+        p1, p2 = self.ends
+        return p1.distance(p2)
+    
+    def __len__(self):
+        p1, p2 = self.ends
+        return p1.distance(p2)
+    
 

@@ -15,6 +15,7 @@ def triangle345() -> Polygon:
     )
 
 
+# example from wikipedia: https://en.wikipedia.org/wiki/Shoelace_formula
 @pytest.fixture
 def pentagon_wikipedia() -> Polygon:
     return Polygon(
