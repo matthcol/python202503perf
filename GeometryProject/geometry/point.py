@@ -23,8 +23,27 @@ class Point(Shape): # class Point inherits from class Shape
     x: float = 0.0
     y: float = 0.0
 
+    @classmethod
+    def from_coordinates(cls, x: float, y: float, **kwargs):
+        """
+        Returns a new point from its coordinates x and y (as an instance of cls).
+
+        Parameters:
+            cls: class of the new point (class Point or a subclass)
+            x (float): horizontal coordinate
+            y (float): vertical coordinate
+            kwargs: extra keyword arguments given to the adequat point constructor 
+
+        Examples:
+            p1 = Point.from(12.5, 4.25)
+            p2 = Point.from(12.5, 4.25, name="A")
+            p3 = WeigtedPoint.from(12.5, 4.25, name="A", weight=12.5)
+        """
+        return cls(x=x, y=y, **kwargs)
+
     # customize a 'str' different from 'repr'
-    def __str__(self):
+    @override
+    def __str__(self) -> str:
         return f"{
                 super().__str__()
             }({

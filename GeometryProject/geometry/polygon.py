@@ -1,3 +1,4 @@
+from collections.abc import Iterable
 from dataclasses import dataclass, field
 from typing import override
 from geometry.mesurable import Mesurable2D
@@ -9,8 +10,31 @@ class Polygon(Shape, Mesurable2D):
     
     vertices: tuple[Point, ...] = field(
         # default_factory=tuple
-        default_factory=lambda: (Point(), Point(), Point())
+        default_factory=lambda: (Point(), Point(), Point()),
+        repr=False
     )
+
+    @staticmethod
+    def from_iterable_vertices(vertices: Iterable[Point]):
+        """
+        Returns a new Polygon from a series of points
+
+        Example:
+            poly = Polygon.from_vertices([p1, p2, p3, p4])
+
+        """
+        return Polygon(vertices = tuple(vertices))
+    
+    @staticmethod
+    def from_vertices(*vertices: Point):
+        """
+        Returns a new Polygon from a series of points
+
+        Example:
+            poly = Polygon.from_vertices(p1, p2, p3, p4)
+
+        """
+        return Polygon(vertices = vertices)
 
     @override
     def translate(self, delta_x: float, delta_y: float) -> None:

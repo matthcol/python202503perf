@@ -38,4 +38,15 @@ Installer les extensions Python et Pylance et éventuellement MyPy.
 - Choisir son interprète python: `Ctrl+Maj+P`
 - Quick Fix (import, ...): `Ctrl+;` or `Ctrl+Maj+;`
 
+
+## Building a Python application
+https://packaging.python.org/en/latest/overview/
+
+### List of dependencies
+Copy code source + file requirements.txt
+
+### pyproject.toml (new way)
+
+### setup tools (old way)
+
  
